@@ -1,0 +1,49 @@
+h2 {
+  color: white;
+  margin: 0 0 1.5rem;
+  font: 2rem verdana;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+/* Loading dots **/
+.loading span {
+  display: inline-block;
+  vertical-align: middle;
+  width: .6em;
+  height: .6em;
+  margin: .19em;
+  background: #00162C;
+  border-radius: .6em;
+  animation: loading 1s infinite alternate;
+}
+
+.loading span:nth-of-type(2) {
+  background: #008FB2;
+  animation-delay: 0.2s;
+}
+.loading span:nth-of-type(3) {
+  background: #009B9E;
+  animation-delay: 0.4s;
+}
+.loading span:nth-of-type(4) {
+  background: #00A77D;
+  animation-delay: 0.6s;
+}
+.loading span:nth-of-type(5) {
+  background: #009B9E;
+  animation-delay: 0.8s;
+}
+.loading span:nth-of-type(6) {
+  background: #008FB2;
+  animation-delay: 1.0s;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

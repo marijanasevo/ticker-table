@@ -1,0 +1,122 @@
+/* AG-GRID THEME CUSTOMIZATION *************************/
+
+.ag-theme-alpine-dark {
+  --ag-background-color: #001223;
+  --ag-header-background-color: #00162d;
+  --ag-odd-row-background-color: #00162d;
+  --ag-header-foreground-color: #99A2AB;
+  --ag-selected-row-background-color: #597a77;
+  --ag-range-selection-border-color: #66c9c6;
+  --ag-modal-overlay-background-color: rgba(0, 22, 45, 0.65);
+  --ag-row-border-color: transparent;
+  --ag-border-color: transparent;
+}
+
+/* ag-grid header row **/
+
+.ag-theme-alpine-dark .ag-header-row {
+  font-weight: normal;
+}
+
+.ag-theme-alpine-dark .ag-header-cell-sorted-asc,
+.ag-theme-alpine-dark .ag-header-cell-sorted-desc {
+  color: white;
+}
+
+/* ag-grid pagination **/
+
+.ag-theme-alpine-dark .ag-paging-panel {
+  justify-content: space-between;
+  color: #99A2AB
+}
+
+/* Trading Pair column **/
+
+.symbol-column {
+  color: #99A2AB;
+  font-size: 1rem;
+}
+
+.ag-row-selected .symbol-column {
+  color: white;
+}
+
+/* Price Change % styles **/
+
+.price-percentage {
+  display: inline;
+  padding: 4px 15px;
+  font-size: 1rem;
+  border-radius: 16px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.positive-price-change .price-percentage::before {
+  content: "↑ ";
+}
+
+.negative-price-change .price-percentage::before {
+  content: "↓ ";
+}
+
+.positive-price-change .price-percentage {
+  color: #99dca5;
+  background: rgba(132, 175, 132, 0.1);
+}
+
+.negative-price-change .price-percentage {
+  color: #e34d4d;
+  background: rgba(255, 0, 0, 0.2);
+}
+
+.ag-row-selected .positive-price-change .price-percentage {
+  color: black;
+  background: rgba(138, 183, 138, 0.6);
+}
+
+.ag-row-selected .negative-price-change .price-percentage {
+  color: black;
+  background: rgba(255, 130, 130, 0.6);
+}
+
+/* Scrollbar **/
+
+.ag-body-horizontal-scroll-viewport::-webkit-scrollbar {
+  height: 10px;
+}
+
+.ag-body-horizontal-scroll-viewport::-webkit-scrollbar:hover {
+  height: 20px;
+}
+
+.ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track {
+  border: .1px solid darkslategray;
+}
+
+::-webkit-scrollbar-thumb {
+  background: darkslategray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #203636;
+}
+
+/* removing pinned scrollbar */
+
+.ag-horizontal-left-spacer { display: none; }
+
+/* removing default scrollbar to use
+ag-grid fake one on webkit-based browsers */
+
+.ag-center-cols-viewport::-webkit-scrollbar { display: none; }
+
+/* Removing ag-grid fake long scrollbar to use
+mozilla's default scrollbar. The fake one has issues */
+
+@-moz-document url-prefix() {
+  .ag-body-horizontal-scroll-viewport {
+    overflow: hidden !important;
+  }
+}
