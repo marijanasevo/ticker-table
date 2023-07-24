@@ -12,7 +12,7 @@ You can check out the live version of this application at the following link:
 
 ## Description
 
-This application fetches data from the Binance API and displays it in a tabular format using Ag-Grid. The table provides information about various trading pairs, including price changes, percentage change, weighted average price, and trading volumes coming from the Binance API endpoint `/api/v1/exchangeInfo`.
+This application fetches data from the Binance API and displays it in a tabular format using Ag-Grid. The table provides information about various trading pairs, including price changes, percentage change, weighted average price, and trading volumes coming from the Binance API endpoint `/api/v3/ticker/24hr`.
 
 ### Parsing of Symbols
 
