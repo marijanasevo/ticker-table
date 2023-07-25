@@ -7,6 +7,7 @@ import './binance-table.css';
 import LoadingAnimation from '../loading-animation/loading-animation.component.jsx';
 import { fetchTickerData, fetchExchangeInfo } from '../../utils/api.js';
 import { getColumnDefs, getDefaultColDefs } from '../../utils/columnDefs.js';
+import { getRowClass } from '../../utils/helpers';
 
 function BinanceTable() {
   const [tickerData, setTickerData] = useState();
@@ -46,15 +47,16 @@ function BinanceTable() {
   const noRowsMessage = error ? error : 'No rows to show';
 
   return (
-    <div className='ag-theme-alpine-dark' style={{ height: '100vh' }}>
+    <div className='ag-theme-alpine-dark'>
       <AgGridReact
         rowData={tickerData}
+        rowHeight={90}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         rowSelection='multiple'
-        animateRows={true}
         pagination={true}
         paginationAutoPageSize={true}
+        getRowClass={getRowClass}
         loadingOverlayComponent={LoadingAnimation}
         overlayNoRowsTemplate={`<span class="ag-overlay-loading-center">${noRowsMessage}</span>`}
       />

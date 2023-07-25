@@ -4,12 +4,24 @@
   --ag-background-color: #001223;
   --ag-header-background-color: #00162d;
   --ag-odd-row-background-color: #00162d;
-  --ag-header-foreground-color: #99A2AB;
+  --ag-header-foreground-color: #99a2ab;
   --ag-selected-row-background-color: #597a77;
   --ag-range-selection-border-color: #66c9c6;
   --ag-modal-overlay-background-color: rgba(0, 22, 45, 0.65);
   --ag-row-border-color: transparent;
   --ag-border-color: transparent;
+  --ag-row-height: 30px;
+}
+
+.ag-theme-alpine-dark .negative {
+  --ag-selected-row-background-color: #866e6e;
+  --ag-range-selection-border-color: #f08400;
+}
+
+.ag-theme-alpine-dark {
+  max-width: 2305px;
+  height: 100vh;
+  margin-inline: auto;
 }
 
 /* ag-grid header row **/
@@ -18,22 +30,34 @@
   font-weight: normal;
 }
 
+.ag-header-cell-label {
+  justify-content: center;
+}
+
 .ag-theme-alpine-dark .ag-header-cell-sorted-asc,
 .ag-theme-alpine-dark .ag-header-cell-sorted-desc {
   color: white;
+}
+
+/* ag-grid cell */
+
+.ag-theme-alpine-dark .ag-cell {
+  display: grid;
+  place-items: center;
+  line-height: 30px;
 }
 
 /* ag-grid pagination **/
 
 .ag-theme-alpine-dark .ag-paging-panel {
   justify-content: space-between;
-  color: #99A2AB
+  color: #99a2ab;
 }
 
 /* Trading Pair column **/
 
 .symbol-column {
-  color: #99A2AB;
+  color: #99a2ab;
   font-size: 1rem;
 }
 
@@ -43,41 +67,55 @@
 
 /* Price Change % styles **/
 
-.price-percentage {
+.price-change {
   display: inline;
   padding: 4px 15px;
   font-size: 1rem;
-  border-radius: 16px;
+  border-radius: 20px;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-areas: 'arrow value-change' 'arrow percentage-change';
+  align-items: center;
+  justify-items: center;
 }
 
-.positive-price-change .price-percentage::before {
-  content: "↑ ";
+.value-change {
+  grid-area: value-change;
 }
 
-.negative-price-change .price-percentage::before {
-  content: "↓ ";
+.percentage-change {
+  grid-area: percentage-change;
 }
 
-.positive-price-change .price-percentage {
+.positive .price-change::before {
+  content: '↑ ';
+  grid-area: arrow;
+  margin-right: 20px;
+  font-size: 1.5rem;
+}
+
+.negative .price-change::before {
+  content: '↓ ';
+  grid-area: arrow;
+  margin-right: 20px;
+  font-size: 1.5rem;
+}
+
+.positive .price-change {
   color: #99dca5;
-  background: rgba(132, 175, 132, 0.1);
 }
 
-.negative-price-change .price-percentage {
+.negative .price-change {
   color: #e34d4d;
-  background: rgba(255, 0, 0, 0.2);
 }
 
-.ag-row-selected .positive-price-change .price-percentage {
-  color: black;
-  background: rgba(138, 183, 138, 0.6);
+.negative.ag-row-selected .price-change {
+  color: white;
 }
 
-.ag-row-selected .negative-price-change .price-percentage {
-  color: black;
-  background: rgba(255, 130, 130, 0.6);
+.unchanged .price-change {
+  position: relative;
+  left: 11px;
 }
 
 /* Scrollbar **/
@@ -91,7 +129,7 @@
 }
 
 .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track {
-  border: .1px solid darkslategray;
+  border: 0.1px solid darkslategray;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -105,12 +143,16 @@
 
 /* removing pinned scrollbar */
 
-.ag-horizontal-left-spacer { display: none; }
+.ag-horizontal-left-spacer {
+  display: none;
+}
 
 /* removing default scrollbar to use
 ag-grid fake one on webkit-based browsers */
 
-.ag-center-cols-viewport::-webkit-scrollbar { display: none; }
+.ag-center-cols-viewport::-webkit-scrollbar {
+  display: none;
+}
 
 /* Removing ag-grid fake long scrollbar to use
 mozilla's default scrollbar. The fake one has issues */
