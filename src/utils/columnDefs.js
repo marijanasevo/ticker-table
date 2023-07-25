@@ -65,7 +65,7 @@ export function getColumnDefs(symbols) {
     {
       field: "askQty",
       cellRenderer: formatAmountCell,
-      headerName: "Highest Bid Quantity",
+      headerName: "Lowest Bid Quantity",
     },
     { field: "openPrice", cellRenderer: formatAmountCell },
     {
