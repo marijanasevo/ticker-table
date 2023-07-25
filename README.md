@@ -4,7 +4,7 @@ This is an Ag-Grid table displaying trading pair data from the Binance exchange.
 
 ![Screenshot](screenshot.png)
 
-There is also a more copact version that can be found on `compact-layout` branch.
+There is also a more compact version that can be found on `compact-layout` branch.
 
 ![Screenshot](screenshot-compact-layout.png)
 
